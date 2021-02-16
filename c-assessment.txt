@@ -1,0 +1,152 @@
+SET-A
+=======
+
+1.#include<stdio.h>
+void main(){
+    printf("using for loop");
+    for(int i=0;i<4;i++){
+        staticdemo();
+    }
+    printf("\n");
+    printf("using while loop");
+    int i=0;
+    while(i<4){
+        staticdemo();
+        i++;
+        
+    }
+    
+    
+}
+void staticdemo(){
+    static int a=4;
+        a=a+4;
+    printf("%d",a);
+}
+
+-------------------------------
+
+2.
+#include<stdio.h>
+int a =5;
+
+void function(){
+    printf("%d",a);
+}
+    void main(){
+        printf("before\n");
+        function();
+        printf("after\n");
+        a=10;
+        function();
+    }
+   
+   
+   #include<stdio.h> 
+    void main(){
+        int a=2;
+        printf("%d",a);
+    }
+    
+    
+
+------------------------------
+
+5.
+#include<stdio.h>
+    struct emp{
+     char id[10];
+     char name[10];
+     char mobile[10];
+ };
+ void main(){
+     struct emp employee[3];
+     printf("enter id,name,mobile number of three employees\n");
+     for(int i=0;i<3;i++){
+         scanf("%s",employee[i].id);
+         scanf("%s",employee[i].name);
+         scanf("%s",employee[i].mobile);
+     }
+    
+     for(int i=0;i<3;i++){
+         printf("%s\t",employee[i].id);
+         printf("%s\t",employee[i].name);
+         printf("%s\n",employee[i].mobile);
+     }
+ }
+---------------
+7.updating
+
+#include<stdio.h>
+struct emp{
+    char id[10];
+    char name[10];
+    char mobile[10];
+};
+void main(){
+    struct emp employee[3];
+    char sid[10]; int flag=0;int sindex=0;char sname[10];
+    printf("enter id,name,mobile number of three employees\n");
+    for(int i=0;i<3;i++){
+        scanf("%s",employee[i].id);
+        scanf("%s",employee[i].name);
+        scanf("%s",employee[i].mobile);
+    }
+    
+    for(int i=0;i<3;i++){
+        printf("%s\t",employee[i].id);
+        printf("%s\t",employee[i].name);
+        printf("%s\n",employee[i].mobile);
+    }
+    
+    
+    printf("enter employee id");
+    scanf("%s",sid);
+    for(int i=0;i<3;i++){
+        if(strcmp(sid,employee[i].id)==0){
+            flag=1; sindex=i;
+            
+            printf("enter new id and name");
+            scanf("%s",sid);
+            scanf("%s",sname);
+            
+            strcpy(sid,employee[i].id);
+            strcpy(sname,employee[i].name);
+            
+            break;
+        }
+        if(flag==1){
+            printf("employee details updated");
+            
+            
+        }
+        else
+        printf("employee not found");
+        
+
+------deleting-----
+
+	char delid[10];
+	int indx = n;
+	printf("enter the id to delete");
+	scanf("%s",delid);
+	for(int i=0;i<n;i++){
+	if(strcmp(delid,employee[i].id) ==0)
+{
+	strcpy(employee[i].id,employee[i+1].id);
+	strcpy(employee[i].name,employee[i+1].name);
+	 sindex=i;
+	
+	}
+	}
+	for(int i=sindex+1;i<n;i++){
+	strcpy(employee[i].id,employee[i+1].id);
+	strcpy(employee[i].name,employee[i+1].name);
+	}
+	--n;
+	for(int i=0;i<3;i++){
+	printf("%s\t",employee[i].name);
+   }
+    
+}
+
